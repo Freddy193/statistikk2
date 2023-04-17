@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1500;
+    border-style: solid;
+}
+
+header {
+    border-style: solid;
+    height: 100px;
+    width: 100%;
+}
+
+main {
+    border-style: solid;
+    height: 400px;
+    width: 800px;
+}
+
+aside {
+    border-style: solid;
+    height: 500px;
+    width: 430px;
+}
+
+footer {
+    border-style: solid;
+    height: 100px;
+    width: 800px;
+    margin-top: -100px;
+}
