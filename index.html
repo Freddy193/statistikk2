@@ -1,1 +1,47 @@
-lxmgvc.
+let data_array = [];
+let grupper_array = ["25-34","35-44","45-54","55-64","65-74","75-79"];
+const csvURL = "sosialeMedier.csv";
+let CanvasEl = document.getElementById("canvas");
+let ctx = CanvasEl.getContext("2d");
+
+fetch(csvURL)
+    .then(response => response.text())  //henter ut teksten fra csv filen
+    .then(csvData => {  // Vi sier at vi har en csv fil som skal gjøre denne funksjonen
+        Papa.parse(csvData, {
+            delimiter: ";",
+            header: true,
+            dynamicTyping: true,
+            complete: function(results){
+                console.log(results.data);
+                data_array = results.data;
+            },
+            error:function(error){
+                console.log(error);
+            },
+        });
+    })
+    ctx.moveTo(0,0);
+    function lagCanvas(array){
+        for (let i = 0; i < array.length; i++) {
+            ctx.lineTo(i,array[i]); 
+            ctx.stroke();
+        } 
+    }
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
