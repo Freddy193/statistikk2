@@ -20,10 +20,17 @@ fetch(csvURL)
             },
         });
     })
+    console.log(data_array);
     ctx.moveTo(0,0);
-    function lagCanvas(array){
-        for (let i = 2010; i < array.length; i++) {
-            ctx.lineTo(i,array[i]); 
+    function lagCanvas(data_array){
+        ctx.beginPath();
+        for (let i = 0; i < data_array.length; i++) {
+            ctx.lineTo(i,data_array[i]); 
             ctx.stroke();
         } 
+        ctx.closePath();
     }
+
+
+window.onload="lagCanvas()";
+    
