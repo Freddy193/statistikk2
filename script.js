@@ -28,6 +28,7 @@ function getMaxValue(array) {
         for (const key in array[i]) {
             if (array[i][key] > maxValue) {
                 maxValue = array[i][key];
+                console.log(maxValue);
             }
         }
     }
