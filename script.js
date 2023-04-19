@@ -22,7 +22,7 @@ fetch(csvURL)
     })
 ctx.moveTo(0, 0);
 function lagCanvas(array) {
-    for (let i = 2010; i < array.length; i++) {
+    for (let i = 2011; i < array.length; i++) {
         ctx.lineTo(i, array[i]);
 
         function getMaxValue(array) {
@@ -71,3 +71,5 @@ function lagCanvas(array) {
                 ctx.stroke();
             }
         }
+    }
+}
