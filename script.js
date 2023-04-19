@@ -45,8 +45,8 @@ function drawAxes() {
         ctx.fillText(i, xPos, CanvasEl.height - 35);
     }
 
-    for (let i = 0, yPos = CanvasEl.height - 60; i <= 10; i += 1, yPos -= 50) {
-        ctx.fillText(i + "%", 20, yPos);
+    for (let i = 0, yPos = CanvasEl.height - 60; i <= 100; i += 10, yPos -= 50) {
+        ctx.fillText(i, 20, yPos);
     }
 }
 
