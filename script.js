@@ -62,7 +62,7 @@ function lagCanvas(array) {
             for (let i = 0; i < array.length; i++) {
                 let year = 2011 + i;
                 let x = 60 + i * 50;
-                let y = (CanvasEl.height - 50) - (array[i][year] / maxValue) * (CanvasEl.height - 100);
+                let y = (array[i][year] / maxValue) * (CanvasEl.height - 100);
                 if (i === 0) {
                     ctx.moveTo(x, y);
                 } else {
