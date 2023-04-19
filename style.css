@@ -3,6 +3,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     width: 1500;
+    height: 800;
     border-style: solid;
 }
 
