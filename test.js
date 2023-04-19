@@ -41,7 +41,7 @@ function drawAxes() {
     ctx.lineTo(CanvasEl.width, CanvasEl.height - 50);
     ctx.stroke();
 
-    for (let i = 2010, xPos = 60; i <= 2010 + data_array.length - 1; i++, xPos += 50) {
+    for (let i = 2011, xPos = 60; i <= 2011 + data_array.length - 1; i++, xPos += 50) {
         ctx.fillText(i, xPos, CanvasEl.height - 35);
     }
 
@@ -56,7 +56,7 @@ function lagCanvas(array){
 
     ctx.beginPath();
     for (let i = 0; i < array.length; i++) {
-        let year = 2010 + i;
+        let year = 2011 + i;
         let x = 60 + i * 50;
         let y = (CanvasEl.height - 50) - (array[i][year] / maxValue) * (CanvasEl.height - 100);
         if (i === 0) {
