@@ -18,6 +18,9 @@ main {
     height: 400px;
     width: 800px;
 }
+#canvas {
+    z-index:999;
+}
 
 aside {
     border-style: solid;
