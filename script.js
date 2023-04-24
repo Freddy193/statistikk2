@@ -12,6 +12,18 @@ let knapp5 = document.querySelector("knapp5").value;
 let knapp6 = document.querySelector("knapp6").value;
 let knapp7 = document.querySelector("knapp7").value;
 
+const checkboxes = document.querySelectorAll('.checkbox');
+
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('click', function() {
+
+    if (this.checked) {
+
+      lagGraf(data_array,this.checked.value);
+    }
+  });
+});
+
 fetch(csvURL)
     .then(response => response.text())
     .then(csvData => {
@@ -22,6 +34,7 @@ fetch(csvURL)
             complete: function (results) {
                 data_array = results.data;
                 console.log(data_array);
+                lagGraf(data_array);
             },
             error: function (error) {
                 console.log(error);
@@ -40,7 +53,7 @@ function lagGraf(data) {
         dataset.push(data[0][year]);
     }
 
-    let ctx = canvasEl.getContext("2d");
+    let ctx = CanvasEl.getContext("2d");
     new Chart(ctx, {
         type: "line",
         data: {
