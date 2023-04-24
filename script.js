@@ -22,6 +22,7 @@ fetch(csvURL)
             complete: function (results) {
                 data_array = results.data;
                 console.log(data_array);
+                lagGraf(data_array);
             },
             error: function (error) {
                 console.log(error);
@@ -40,7 +41,7 @@ function lagGraf(data) {
         dataset.push(data[0][year]);
     }
 
-    let ctx = canvasEl.getContext("2d");
+    let ctx = CanvasEl.getContext("2d");
     new Chart(ctx, {
         type: "line",
         data: {
