@@ -4,13 +4,13 @@ const csvURL = "sosialeMedier.csv";
 let CanvasEl = document.getElementById("canvas");
 let ctx = CanvasEl.getContext("2d");
 
-let knapp1 = document.querySelector("knapp1").value;
-let knapp2 = document.querySelector("knapp2").value;
-let knapp3 = document.querySelector("knapp3").value;
-let knapp4 = document.querySelector("knapp4").value;
-let knapp5 = document.querySelector("knapp5").value;
-let knapp6 = document.querySelector("knapp6").value;
-let knapp7 = document.querySelector("knapp7").value;
+let knapp1 = document.querySelector("#knapp1").value;
+let knapp2 = document.querySelector("#knapp2").value;
+let knapp3 = document.querySelector("#knapp3").value;
+let knapp4 = document.querySelector("#knapp4").value;
+let knapp5 = document.querySelector("#knapp5").value;
+let knapp6 = document.querySelector("#knapp6").value;
+let knapp7 = document.querySelector("#knapp7").value;
 
 const checkboxes = document.querySelectorAll('.checkbox');
 
