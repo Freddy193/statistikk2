@@ -12,19 +12,6 @@ let knapp5 = document.querySelector("knapp5").value;
 let knapp6 = document.querySelector("knapp6").value;
 let knapp7 = document.querySelector("knapp7").value;
 
-const checkboxes = document.querySelectorAll('.checkbox');
-
-checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('click', function() {
-
-    if (this.checked) {
-
-      lagGraf();
-    }
-  });
-});
-
-
 fetch(csvURL)
     .then(response => response.text())
     .then(csvData => {
