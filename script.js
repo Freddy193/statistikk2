@@ -4,6 +4,15 @@ const csvURL = "sosialeMedier.csv";
 let CanvasEl = document.getElementById("canvas");
 let ctx = CanvasEl.getContext("2d");
 
+let knapp1 = document.querySelector("knapp1").value;
+let knapp2 = document.querySelector("knapp2").value;
+let knapp3 = document.querySelector("knapp3").value;
+let knapp4 = document.querySelector("knapp4").value;
+let knapp5 = document.querySelector("knapp5").value;
+let knapp6 = document.querySelector("knapp6").value;
+let knapp7 = document.querySelector("knapp7").value;
+
+
 fetch(csvURL)
     .then(response => response.text())  //henter ut teksten fra csv filen
     .then(csvData => {  // Vi sier at vi har en csv fil som skal gjøre denne funksjonen
@@ -12,8 +21,8 @@ fetch(csvURL)
             header: true,
             dynamicTyping: true,
             complete: function (results) {
-                console.log(results.data);
                 data_array = results.data;
+                console.log(data_array);
             },
             error: function (error) {
                 console.log(error);
@@ -72,3 +81,5 @@ function lagCanvas(array) {
                 ctx.stroke();
             }
         }
+    }
+}
