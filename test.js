@@ -25,10 +25,11 @@ function lagGraf(data) {
     let labels = [];
     let dataset = [];
 
+
     for (let i = 0; i < data.length; i++) {
         const year = 2011 + i;
         labels.push(year);
-        dataset.push(data[i][year]);
+        dataset.push(data[0][year]);
     }
 
     let ctx = canvasEl.getContext("2d");
