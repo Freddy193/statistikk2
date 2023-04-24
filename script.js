@@ -12,7 +12,6 @@ let knapp5 = document.querySelector("knapp5").value;
 let knapp6 = document.querySelector("knapp6").value;
 let knapp7 = document.querySelector("knapp7").value;
 
-
 fetch(csvURL)
     .then(response => response.text())
     .then(csvData => {
