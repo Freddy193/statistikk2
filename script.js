@@ -22,7 +22,7 @@ fetch(csvURL)
     })
 ctx.moveTo(0, 0);
 function lagCanvas(array) {
-    for (let i = 2010; i < array.length; i++) {
+    for (let i = 2011; i < array.length; i++) {
         ctx.lineTo(i, array[i]);
 
         function getMaxValue(array) {
@@ -49,10 +49,11 @@ function lagCanvas(array) {
                 ctx.fillText(i, xPos, CanvasEl.height - 35);
             }
 
-            for (let i = 0, yPos = CanvasEl.height - 60; i <= 100; i += 10, yPos -= 50) {
-                ctx.fillText(i, 20, yPos);
-            }
-        }
+    for (let i = 0, yPos = CanvasEl.height - 60; i <= 100; i += 10, yPos -=50 ) {
+        ctx.fillText(i, 20, yPos);
+    }
+    console.log(CanvasEl.height);
+}
 
         function lagCanvas(array) {
             let maxValue = getMaxValue(array);
@@ -71,3 +72,5 @@ function lagCanvas(array) {
                 ctx.stroke();
             }
         }
+    }
+}
