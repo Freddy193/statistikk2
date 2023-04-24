@@ -14,14 +14,14 @@ let knapp7 = document.querySelector("#knapp7").value;
 
 const checkboxes = document.querySelectorAll('.checkbox');
 
+function handleCheckboxClick(event) {
+  if (event.target.checked) {
+    console.log(event.target.value);
+  }
+}
+
 checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('click', function() {
-
-    if (this.checked) {
-
-      lagGraf(data_array,this.checked.value);
-    }
-  });
+  checkbox.addEventListener('change', handleCheckboxClick);
 });
 
 fetch(csvURL)
