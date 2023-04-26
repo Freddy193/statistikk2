@@ -1,7 +1,20 @@
 let data_array = [];
 let grupper_array = ["25-34", "35-44", "45-54", "55-64", "65-74", "75-79"];
 const csvURL = "sosialeMedier.csv";
-let canvasEl = document.getElementById("canvas");
+let CanvasEl = document.getElementById("canvas");
+let ctx = CanvasEl.getContext("2d");
+
+const checkboxes = document.querySelectorAll('input');
+
+function handleCheckboxClick(event) {
+  if (event.target.checked) {
+    lagGraf(data_array,event.target.value)
+  }
+}
+
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', handleCheckboxClick);
+});
 
 fetch(csvURL)
     .then(response => response.text())
@@ -11,9 +24,8 @@ fetch(csvURL)
             header: true,
             dynamicTyping: true,
             complete: function (results) {
-                console.log(results.data);
                 data_array = results.data;
-                lagGraf(data_array);
+                console.log(data_array);
             },
             error: function (error) {
                 console.log(error);
@@ -21,19 +33,20 @@ fetch(csvURL)
         });
     });
 
-function lagGraf(data) {
+function lagGraf(data,aar) {
     let labels = [];
     let dataset = [];
+    
 
 
     for (let i = 0; i < data.length; i++) {
         const year = 2011 + i;
         labels.push(year);
-        dataset.push(data[0][year]);
+        dataset.push(data[aar][year]);
     }
 
-    let ctx = canvasEl.getContext("2d");
-    new Chart(ctx, {
+    var ctx = CanvasEl.getContext("2d");
+    const charts = new Chart(ctx, {
         type: "line",
         data: {
             labels: labels,

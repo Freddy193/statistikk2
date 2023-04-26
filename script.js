@@ -1,7 +1,3 @@
-window.onload = (event) => {
-    lagKoordinatsystem();
-};
-
 let data_array = [];
 let grupper_array = ["25-34", "35-44", "45-54", "55-64", "65-74", "75-79"];
 const csvURL = "sosialeMedier.csv";
@@ -52,7 +48,15 @@ function lagGraf(data,aar) {
     var ctx = CanvasEl.getContext("2d");
     const charts = new Chart(ctx, {
         type: "line",
-        
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Sosiale medier bruk",
+                data: dataset,
+                borderColor: "rgba(75, 192, 192, 1)",
+                tension: 0.1,
+            }],
+        },
         options: {
             scales: {
                 y: {
@@ -63,23 +67,3 @@ function lagGraf(data,aar) {
     });
 }
 
-function lagGraf(data, aar) {
-    let labels = [];
-    let dataset = [];
-
-    for (let i = 0; i < data.length; i++) {
-        const year = 2011 + i;
-        labels.push(year);
-        dataset.push(data[i][year]);
-    }
-
-    data: {
-        labels: labels,
-        datasets: [{
-            label: "Sosiale medier bruk",
-            data: dataset,
-            borderColor: "rgba(75, 192, 192, 1)",
-            tension: 0.1,
-        }],
-    }
-}
