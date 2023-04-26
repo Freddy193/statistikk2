@@ -4,11 +4,11 @@ const csvURL = "sosialeMedier.csv";
 let CanvasEl = document.getElementById("canvas");
 let ctx = CanvasEl.getContext("2d");
 
-const checkboxes = document.querySelectorAll('.checkbox');
+const checkboxes = document.querySelectorAll('input');
 
 function handleCheckboxClick(event) {
   if (event.target.checked) {
-    console.log(event.target.value);
+    lagGraf(data_array,event.target.value)
   }
 }
 
@@ -26,7 +26,6 @@ fetch(csvURL)
             complete: function (results) {
                 data_array = results.data;
                 console.log(data_array);
-                lagGraf(data_array);
             },
             error: function (error) {
                 console.log(error);
@@ -34,19 +33,20 @@ fetch(csvURL)
         });
     });
 
-function lagGraf(data) {
+function lagGraf(data,aar) {
     let labels = [];
     let dataset = [];
+    
 
 
     for (let i = 0; i < data.length; i++) {
         const year = 2011 + i;
         labels.push(year);
-        dataset.push(data[0][year]);
+        dataset.push(data[aar][year]);
     }
 
-    let ctx = CanvasEl.getContext("2d");
-    new Chart(ctx, {
+    var ctx = CanvasEl.getContext("2d");
+    const charts = new Chart(ctx, {
         type: "line",
         data: {
             labels: labels,
