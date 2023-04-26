@@ -5,19 +5,21 @@ body {
     width: 1500;
     height: 800;
     border-style: solid;
-    background-color: rgb(196, 231, 248);
+    background-color: #847E89;
 }
 
 header {
     border-style: solid;
-    height: 100px;
+    height: 75px;
     width: 100%;
+    background-color: #C2D3CD;
 }
 
 main {
     border-style: solid;
     height: 400px;
-    width: 800px;
+    width: 900px;
+    background-color: #C2D3CD;
 }
 #canvas {
     z-index:999;
@@ -26,19 +28,29 @@ main {
 aside {
     border-style: solid;
     height: 500px;
-    width: 430px;
+    width: 330px;
+    background-color: #C2D3CD;
 }
 
 footer {
     border-style: solid;
     height: 100px;
-    width: 800px;
+    width: 900px;
     margin-top: -100px;
+    background-color: #C2D3CD;
 
+}
+
+h1 {
+    margin-left: 20px;
+    margin-top: 30px;
+    font-size: 40px;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 
 h2 {
     font-size: 22px;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 
 /* Customize the label (the container) */
@@ -46,11 +58,12 @@ h2 {
     display: block;
     position: relative;
     padding-left: 35px;
-    margin-top: 20px;
-    margin-left: 50px;
+    margin-top: 30px;
+    margin-left: 30px;
     margin-bottom: 30px;
     cursor: pointer;
     font-size: 22px;
+    font-family: "Lucida Console", "Courier New", monospace;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
