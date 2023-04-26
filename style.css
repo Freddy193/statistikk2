@@ -21,6 +21,9 @@ main {
     width: 900px;
     background-color: #C2D3CD;
 }
+#canvas {
+    z-index:999;
+}
 
 aside {
     border-style: solid;
