@@ -8,25 +8,16 @@ const csvURL = "sosialeMedier.csv";
 let CanvasEl = document.getElementById("canvas");
 let ctx = CanvasEl.getContext("2d");
 
+const checkboxes = document.querySelectorAll('input');
 
-let knapp1 = document.querySelector("#knapp1").value;
-let knapp2 = document.querySelector("#knapp2").value;
-let knapp3 = document.querySelector("#knapp3").value;
-let knapp4 = document.querySelector("#knapp4").value;
-let knapp5 = document.querySelector("#knapp5").value;
-let knapp6 = document.querySelector("#knapp6").value;
-let knapp7 = document.querySelector("#knapp7").value;
-
-const checkboxes = document.querySelectorAll(checkbox);
+function handleCheckboxClick(event) {
+  if (event.target.checked) {
+    lagGraf(data_array,event.target.value)
+  }
+}
 
 checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', function() {
-    console.log("checkbox");
-    if (this.checked) {
-      lagGraf(data_array,this.checked.value);
-      console.log("if-løkke");
-    }
-  });
+  checkbox.addEventListener('change', handleCheckboxClick);
 });
 
 fetch(csvURL)
@@ -46,9 +37,20 @@ fetch(csvURL)
         });
     });
 
-function lagKoordinatsystem() {
-    let ctx = CanvasEl.getContext("2d");
-    new Chart(ctx, {
+function lagGraf(data,aar) {
+    let labels = [];
+    let dataset = [];
+    
+
+
+    for (let i = 0; i < data.length; i++) {
+        const year = 2011 + i;
+        labels.push(year);
+        dataset.push(data[aar][year]);
+    }
+
+    var ctx = CanvasEl.getContext("2d");
+    const charts = new Chart(ctx, {
         type: "line",
         
         options: {

@@ -1,56 +1,81 @@
 body {
+    border-style: none;
+    background-color: darkslategray;
+}
+
+#hovedkonteiner {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 1500;
-    height: 800;
-    border-style: solid;
-    background-color: rgb(196, 231, 248);
+    border-style: none;
+    height: 700px;
+    width: 1150px;
+    margin-left: 50px;
+    background-color: whitesmoke;
 }
 
 header {
-    border-style: solid;
-    height: 100px;
-    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-width: 0.2px;
+    height: 75px;
+    width: 1040px;
+    margin-top: 20px;
+    margin-left: 60px;
 }
 
 main {
-    border-style: solid;
+    border-style: none;
     height: 400px;
-    width: 800px;
+    width: 70%;
+    margin-left: 60px;
+    margin-top: -30px;
 }
+
 #canvas {
-    z-index:999;
+    z-index: 999;
 }
 
 aside {
-    border-style: solid;
+    border-style: none;
     height: 500px;
-    width: 430px;
+    width: 23%;
+    margin-top: -30px;
 }
 
 footer {
-    border-style: solid;
+    border-top-style: solid;
+    border-top-width: 0.2px;
     height: 100px;
-    width: 800px;
-    margin-top: -100px;
+    width: 1040px;
+    margin-top: -120px;
+    margin-left: 60px;
 
+}
+
+h1 {
+    margin-left: 20px;
+    margin-top: 30px;
+    font-size: 40px;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 
 h2 {
     font-size: 22px;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
+
 
 /* Customize the label (the container) */
 .container {
     display: block;
     position: relative;
     padding-left: 35px;
-    margin-top: 20px;
-    margin-left: 50px;
+    margin-top: 30px;
+    margin-left: 30px;
     margin-bottom: 30px;
     cursor: pointer;
     font-size: 22px;
+    font-family: "Lucida Console", "Courier New", monospace;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -73,12 +98,12 @@ h2 {
     left: 0;
     height: 25px;
     width: 25px;
-    background-color: #eee;
+    background-color: lightgray;
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover input~.knapp {
-    background-color: #ccc;
+    background-color: darkgrey;
 }
 
 /* When the checkbox is checked, add a blue background */
