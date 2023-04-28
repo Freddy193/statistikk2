@@ -107,7 +107,7 @@ function lagChart2(data) {
     const tjuefem_trettifire = data.map(d => d.tjuefem_trettifire);
     const tjuefem_trettifireMotsatt = data.map(d => 100-d.tjuefem_trettifire);
 
-    Chart2 = new Chart(ctx2, {
+    Chart2 = new Chart(ctx2, { 
         type: "donut",
         data: {
             labels: ["Bruker", "Bruker ikke"],
