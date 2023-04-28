@@ -46,7 +46,7 @@ aside {
     border-top-style: solid;
     border-top-width: 0.2px;
     width: 1040px;
-    height:500px;
+    height: 500px;
     margin-top: -120px;
     margin-left: 60px;
 
@@ -62,6 +62,15 @@ h1 {
 h2 {
     font-size: 22px;
     font-family: "Lucida Console", "Courier New", monospace;
+}
+
+p {
+    border-top-style: solid;
+    border-width: 0.2px;
+    padding: 5px;
+    font-size: 14px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    line-height: 1.2;
 }
 
 
@@ -135,6 +144,7 @@ h2 {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
 /* Radio knapper for å bytte type framstilling*/
 aside label {
     font-family: "Lucida Console", "Courier New", monospace;
