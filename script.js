@@ -23,6 +23,7 @@ fetch(csvURL)
         data_array = results.data;
         lagChart(data_array);
         console.log(data_array);
+        lagChart2();
         
     },
     error: function (error) {
@@ -58,36 +59,42 @@ function lagChart(data) {
                 label: "25-34 år",
                 data: tjuefem_trettifire,
                 borderColor: "rgba(75, 192, 192, 1)",
+                backgroundColor: "rgba(75, 192, 192, 1)",
                 tension: 0.1,
             },
             {
                 label: "35-44 år",
                 data: trettifem_fortifire,
                 borderColor: "rgba(17, 46, 81,1)",
+                backgroundColor: "rgba(17, 46, 81,1)",
                 tension: 0.1,
             },
             {
                 label: "45-54 år",
                 data: fortifem_femtifire,
                 borderColor: "rgba(255, 112, 67, 1)",
+                backgroundColor: "rgba(255, 112, 67, 1)",
                 tension: 0.1,
             },
             {
                 label: "55-64 år",
                 data: femtifem_sekstifire,
                 borderColor: "rgba(120, 144, 156, 1)",
+                backgroundColor: "rgba(120, 144, 156, 1)",
                 tension: 0.1,
             },
             {
                 label: "65-74 år",
                 data: sekstifem_syttifire,
                 borderColor: "rgba(93, 40, 24, 1)",
+                backgroundColor: "rgba(93, 40, 24, 1)",
                 tension: 0.1,
             },
             {
                 label: "75-79 år",
                 data: syttifem_syttini,
                 borderColor: "rgba(46, 120, 210, 1)",
+                backgroundColor: "rgba(46, 120, 210, 1)",
                 tension: 0.1,
             }
         ],
@@ -95,34 +102,27 @@ function lagChart(data) {
         options: {
             scales: {
                 y: {
-                    beginAtZero: true,
+                    beginAtZero:false,
                 },
+                x: {
+                    min: labels[0],
+                    max: labels[labels.lenght-1],
+                }
             },
         },
     
     });
    
 }
-function lagChart2(data) {
-    const tjuefem_trettifire = data.map(d => d.tjuefem_trettifire);
-    const tjuefem_trettifireMotsatt = data.map(d => 100-d.tjuefem_trettifire);
-
+function lagChart2() {
     Chart2 = new Chart(ctx2, { 
-        type: "donut",
+        type: "pie",
         data: {
-            labels: ["Bruker", "Bruker ikke"],
             datasets: [
                 {
-                label: "25-34 år",
-                data: tjuefem_trettifire,
-                borderColor: "rgba(75, 192, 192, 1)",
-                tension: 0.1,
-            },
-            {
-                label: "25-34 år",
-                data: tjuefem_trettifireMotsatt,
-                borderColor: "rgba(75, 192, 192, 1)",
-                tension: 0.1,
+                labels: ["Bruker", "Bruker ikke"],
+                backgroundColor: "rgba(75, 192, 192, 1)",
+                data: [87,13],
             },
         ],
     },
