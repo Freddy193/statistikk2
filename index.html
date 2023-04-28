@@ -13,7 +13,7 @@
 <body> 
     <div id="hovedkonteiner">
         <header>
-            <h1>Graf over bla bla bla</h1>
+            <h1>Graf over bruk av internett</h1>
     
         </header>
         <main>
@@ -22,40 +22,25 @@
             </canvas> 
         </main>
         <aside>
-            <h2 style="text-align: center;">aldersgrupper</h2>
-            <label class="container">10-20
-                <input type="checkbox" value="0">
-                <span id="knapp1" class="knapp"></span>
-            </label>
-            <label class="container">10-20
-                <input type="checkbox" value="1">
-                <span id="knapp2" class="knapp"></span>
-            </label>
-            <label class="container">10-20
-                <input type="checkbox" value="2">
-                <span id="knapp3" class="knapp"></span>
-             </label>
-             <label class="container">10-20
-                <input type="checkbox" value="3">
-                <span id="knapp4" class="knapp"></span>
-             </label>
-             <label class="container">10-20
-                <input type="checkbox" value="4">
-                <span id="knapp5" class="knapp"></span>
-            </label>
-            <label class="container">10-20
-                <input type="checkbox" value="5">
-                <span id="knapp6" class="knapp"></span>
-            </label>
-            <label class="container">10-20
-                <input type="checkbox" value="6">
-                <span id="knapp7" class="knapp"></span>
-            </label>
-          
+            <input type="radio" id="soyle" name="align" onclick="Bar()"> 
+            <label class="formBytter" for="soyle" class="radio">Søylediagram</label> 
+            <input type="radio" id="graf" name="align" onclick="line()"> 
+            <label class="formBytter" for="graf" class="radio">Graf</label> 
+
+            <p>Dette er en oversikt over økning i prosentandel som svarer at de har brukt internett i løpet av de 3 siste månedene.
+                <br>
+                <br>
+                Framstilling av statistikk levert av Mattias, Birk og Frederic
+            </p>
         </aside>
-        <footer>
-            <p>grafen over viser brabrabrabra. vi ser en kraftig økning bla bla bla</p>
-        </footer>
+        <div id="main2">
+           <canvas id="canvas2" class="canvas-footer">
+
+           </canvas>
+           <canvas id="canvas3" class="canvas-footer">
+
+           </canvas>
+        </div>
             
     </div>
         <script src="script.js"></script>

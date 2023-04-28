@@ -8,7 +8,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     border-style: none;
-    height: 700px;
+    height: 1100px;
     width: 1150px;
     margin-left: 50px;
     background-color: whitesmoke;
@@ -42,11 +42,11 @@ aside {
     margin-top: -30px;
 }
 
-footer {
+#main2 {
     border-top-style: solid;
     border-top-width: 0.2px;
-    height: 100px;
     width: 1040px;
+    height:500px;
     margin-top: -120px;
     margin-left: 60px;
 
@@ -134,4 +134,8 @@ h2 {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+/* Radio knapper for å bytte type framstilling*/
+aside label {
+    font-family: "Lucida Console", "Courier New", monospace;
 }

@@ -1,61 +1,96 @@
-let data_array = [];
-let grupper_array = ["25-34", "35-44", "45-54", "55-64", "65-74", "75-79"];
-const csvURL = "sosialeMedier.csv";
-let CanvasEl = document.getElementById("canvas");
-let ctx = CanvasEl.getContext("2d");
+let form = "line";
 
-const checkboxes = document.querySelectorAll('input');
 
-function handleCheckboxClick(event) {
-  if (event.target.checked) {
-    lagGraf(data_array,event.target.value)
-  }
+function line() {
+    Chart.config.type = "line";
+    Chart.update();
 }
+function Bar() {
+    Chart.config.type = "bar";
+    Chart.update();
+}
+let data_array = [];
 
-checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', handleCheckboxClick);
+const csvURL = "sosialeMedier.csv";
+fetch(csvURL)
+.then(response => response.text())
+.then(csvData => {
+    Papa.parse(csvData, {
+    delimiter: ";",
+    header: true,
+    dynamicTyping: true,
+    complete: function (results) {
+        data_array = results.data;
+        lagChart(data_array);
+        console.log(data_array);
+        
+    },
+    error: function (error) {
+        console.log(error);
+    },
+    });
 });
 
-fetch(csvURL)
-    .then(response => response.text())
-    .then(csvData => {
-        Papa.parse(csvData, {
-            delimiter: ";",
-            header: true,
-            dynamicTyping: true,
-            complete: function (results) {
-                data_array = results.data;
-                console.log(data_array);
-            },
-            error: function (error) {
-                console.log(error);
-            },
-        });
-    });
+let CanvasEl = document.getElementById("canvas");
+let CanvasEl2 = document.getElementById("canvas2");
+let CanvasEl3 = document.getElementById("canvas3");
+var ctx = CanvasEl.getContext("2d");
+var ctx2 = CanvasEl2.getContext("2d");
+var ctx3 = CanvasEl2.getContext("2d");
 
-function lagGraf(data,aar) {
-    let labels = [];
-    let dataset = [];
+
+function lagChart(data) {
     
+    const labels = data.map(d => d.År);
+    const tjuefem_trettifire = data.map(d => d.tjuefem_trettifire);
+    const trettifem_fortifire = data.map(d => d.trettifem_fortifire);
+    const fortifem_femtifire = data.map(d => d.fortifem_femtifire);
+    const femtifem_sekstifire = data.map(d => d.femtifem_sekstifire);
+    const sekstifem_syttifire = data.map(d => d.sekstifem_syttifire);
+    const syttifem_syttini = data.map(d => d.syttifem_syttini);
 
-
-    for (let i = 0; i < data.length; i++) {
-        const year = 2011 + i;
-        labels.push(year);
-        dataset.push(data[aar][year]);
-    }
-
-    var ctx = CanvasEl.getContext("2d");
-    const charts = new Chart(ctx, {
+    Chart = new Chart(ctx, {
         type: "line",
         data: {
             labels: labels,
-            datasets: [{
-                label: "Sosiale medier bruk",
-                data: dataset,
+            datasets: [
+                {
+                label: "25-34 år",
+                data: tjuefem_trettifire,
                 borderColor: "rgba(75, 192, 192, 1)",
                 tension: 0.1,
-            }],
+            },
+            {
+                label: "35-44 år",
+                data: trettifem_fortifire,
+                borderColor: "rgba(17, 46, 81,1)",
+                tension: 0.1,
+            },
+            {
+                label: "45-54 år",
+                data: fortifem_femtifire,
+                borderColor: "rgba(255, 112, 67, 1)",
+                tension: 0.1,
+            },
+            {
+                label: "55-64 år",
+                data: femtifem_sekstifire,
+                borderColor: "rgba(120, 144, 156, 1)",
+                tension: 0.1,
+            },
+            {
+                label: "65-74 år",
+                data: sekstifem_syttifire,
+                borderColor: "rgba(93, 40, 24, 1)",
+                tension: 0.1,
+            },
+            {
+                label: "75-79 år",
+                data: syttifem_syttini,
+                borderColor: "rgba(46, 120, 210, 1)",
+                tension: 0.1,
+            }
+        ],
         },
         options: {
             scales: {
@@ -64,6 +99,41 @@ function lagGraf(data,aar) {
                 },
             },
         },
+    
+    });
+   
+}
+function lagChart2(data) {
+    const tjuefem_trettifire = data.map(d => d.tjuefem_trettifire);
+    const tjuefem_trettifireMotsatt = data.map(d => 100-d.tjuefem_trettifire);
+
+    Chart2 = new Chart(ctx2, {
+        type: "donut",
+        data: {
+            labels: ["Bruker", "Bruker ikke"],
+            datasets: [
+                {
+                label: "25-34 år",
+                data: tjuefem_trettifire,
+                borderColor: "rgba(75, 192, 192, 1)",
+                tension: 0.1,
+            },
+            {
+                label: "25-34 år",
+                data: tjuefem_trettifireMotsatt,
+                borderColor: "rgba(75, 192, 192, 1)",
+                tension: 0.1,
+            },
+        ],
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+            },
+        },
+    },
     });
 }
+
 
